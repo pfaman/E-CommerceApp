@@ -4,6 +4,7 @@ import bodyParser from "express";
 import { config } from "dotenv";
 import userRouter from "./Routes/User.js";
 import productRouter from "./Routes/Product.js";
+import  cartRouter  from "./Routes/Cart.js";
 const app = express();
 
 app.use(bodyParser.json());
@@ -13,6 +14,9 @@ app.use("/api/user", userRouter);
 
 // Product Routes
 app.use("/api/product", productRouter);
+
+// Cart Routes
+app.use("/api/cart", cartRouter);
 
 // .env setup
 config({path : './.env'});
