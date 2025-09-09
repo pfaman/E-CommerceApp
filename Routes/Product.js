@@ -1,5 +1,5 @@
 import express from 'express';
-import { addProduct, deleteProduct, getAllProducts, updateProduct } from '../Controllers/Product.js';
+import { addProduct, deleteProduct, getAllProducts, updateProduct , getProductById} from '../Controllers/Product.js';
 const router = express.Router();
 
 
@@ -14,6 +14,13 @@ router.post('/add', addProduct);
 // @api api/product/get-all-products
 // 
 router.get('/get-all', getAllProducts);
+
+
+// Get Product by ID
+// Request Type : POST
+// @api api/product/get-product/:id
+// 
+router.get('/get-product/:id', getProductById);
 
 
 // Update Products

@@ -24,7 +24,7 @@ export const getAllProducts = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: error.message, success: false });
   }
-}
+};
 
 // Delete Product
 
@@ -63,5 +63,26 @@ export const updateProduct = async (req, res ) =>{
     }
   } catch (error) {
     res.status(500).json({message : error.message, success : false})
+  }  
+};
+
+// Get Product by ID
+
+export const getProductById = async (req, res) => {
+  try {
+    const id = req.params.id;
+    let product = await Product.findById(id);
+
+    if (!product) {
+      return res
+        .status(404)
+        .json({ message: "Product not found", success: false });
+    } else {
+      res
+        .status(200)
+        .json({ message: "Product retrieved successfully", success: true, product });
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message, success: false });
   }
-}
+};
