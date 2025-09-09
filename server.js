@@ -3,13 +3,16 @@ import mongoose from "mongoose";
 import bodyParser from "express";
 import { config } from "dotenv";
 import userRouter from "./Routes/User.js";
-
+import productRouter from "./Routes/Product.js";
 const app = express();
 
 app.use(bodyParser.json());
 
 // User Routes
 app.use("/api/user", userRouter);
+
+// Product Routes
+app.use("/api/product", productRouter);
 
 // .env setup
 config({path : './.env'});

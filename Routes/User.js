@@ -4,12 +4,12 @@ const router = express.Router();
 
 
 // Regster Route
-// POST Request
+// Request Type : POST
 // @api /api/user/register
 router.post("/register", register);
 
 // Login Route
-// POST Request
+// Request Type : POST
 // @api /api/user/login
 router.post("/login", login);
 
