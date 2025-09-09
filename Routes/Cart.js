@@ -1,5 +1,5 @@
 import express from 'express';
-import { addToCart, getUserCart, removeProductFromCartById } from '../Controllers/Cart.js';
+import { addToCart, clearCart, decreaseProductQuanity, getUserCart, removeProductFromCartById } from '../Controllers/Cart.js';
 import { authMiddleware } from '../MiddleWares/Auth.js';
 const router = express.Router();
 
@@ -18,5 +18,17 @@ router.get('/user-cart', authMiddleware, getUserCart);
 // Request Type : Delete
 // @api api/cart/delete/:id
 router.delete('/remove/:productId', authMiddleware, removeProductFromCartById);
+
+
+// Clear Product from Cart
+// Request Type : Delete
+// @api api/cart/clear
+router.delete('/clear', authMiddleware, clearCart);
+
+
+// Decrease quantity from Cart
+// Request Type : POST
+// @api api/cart/decrease-quantity
+router.post('/decrease-quanity', authMiddleware, decreaseProductQuanity);
 
 export default  router;
