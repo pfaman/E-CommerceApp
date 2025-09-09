@@ -1,5 +1,5 @@
 import express from 'express';
-import { addProduct, deleteProduct, getAllProducts } from '../Controllers/Product.js';
+import { addProduct, deleteProduct, getAllProducts, updateProduct } from '../Controllers/Product.js';
 const router = express.Router();
 
 
@@ -16,8 +16,14 @@ router.post('/add', addProduct);
 router.get('/get-all', getAllProducts);
 
 
+// Update Products
+// Request Type : PUT
+// @api api/product/update-product
+// 
+router.put('/update/:id', updateProduct);
+
 // Delete Product
-// Request Type : POST
+// Request Type : DELETE
 // @api api/product/delete-product
 // 
 router.delete('/delete/:id', deleteProduct);
